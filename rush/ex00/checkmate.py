@@ -1,2 +1,0 @@
-# checkmate.py
-
