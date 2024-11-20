@@ -11,18 +11,37 @@ def parse_board(board):
     king_pos = None   # King Position เดี๋ยวใช้สำหรับเก็บ (x, y)
 
     # 4. loop
-    for y, line in enumerate(lines):  # y คือดัชนีของแถว
-        row = []  # ใช้เก็บข้อมูลของแต่ละแถว
-        for x, char in enumerate(line):  # x คือดัชนีของแต่ละคอลัมน์
-            row.append(char)  # เพิ่มตัวอักษร (หมาก) ลงในแถว
-            if char == 'K':   # ถ้าพบ King (K)
-                king_pos = (x, y)  # บันทึกตำแหน่ง (x, y)
-        board_array.append(row)  # เพิ่มแถวนี้ลงในกระดาน
+    for y, line in enumerate(lines):
+        row = []
+        for x, char in enumerate(line):
+            row.append(char)  # เพิ่ม (Char) ลงในแถว
+            if char == 'K':   # find King
+                king_pos = (x, y)  # log king
+        board_array.append(row)  # add row to board
+    #row = ['R', '.', '.', '.']
+    #row = ['.', 'K', '.', '.']
+    #king_pos = (1, 1)
+    #row = ['.', '.', 'P', '.']
+    #row = ['.', '.', '.', '.']
 
-
+    '''board_array = [
+    ['R', '.', '.', '.'],
+    ['.', 'K', '.', '.'],
+    ['.', '.', 'P', '.'],
+    ['.', '.', '.', '.']
+    ]'''
 
     # 5. 2D, posi King, sz
     return board_array, king_pos, size
+    
+    '''board_array = [
+    ['R', '.', '.', '.'],
+    ['.', 'K', '.', '.'],
+    ['.', '.', 'P', '.'],
+    ['.', '.', '.', '.']
+    ]
+    king_pos = (1, 1)  C 1 R 1
+    size = 4  4x4'''
 
 board = """\
 R...
@@ -30,3 +49,14 @@ R...
 ..P.
 ....\
 """
+
+board_array, king_pos, size = parse_board(board)
+
+print(board_array)
+# [['R', '.', '.', '.'], ['.', 'K', '.', '.'], ['.', '.', 'P', '.'], ['.', '.', '.', '.']]
+
+print(king_pos)
+# (1, 1)
+
+print(size)
+# 4
