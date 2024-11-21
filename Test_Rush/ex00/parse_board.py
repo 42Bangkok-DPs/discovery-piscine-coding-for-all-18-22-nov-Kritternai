@@ -57,6 +57,6 @@ print(board_array)
 
 print(king_pos)
 # (1, 1)
-
+X
 print(size)
 # 4
